@@ -40,7 +40,7 @@ const Navbar = () => {
 	}, [isLogin]);
 
 	return (
-		<div className="w-full flex flex-col md:flex-row justify-between items-center h-fit p-8 border-b bg-transparent z-10">
+		<div className="w-full flex flex-col md:flex-row justify-between items-center h-fit p-8 border-b bg-white z-10">
 			<div className="mb-4 md:mb-0">
 				<Link to={"/"}>
 					<h1 className="text-3xl text-slate-800 font-bold">GoTube</h1>

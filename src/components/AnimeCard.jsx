@@ -2,7 +2,7 @@ import React from "react";
 
 const AnimeCard = ({ title, image, genres, episodes }) => {
 	return (
-		<div className="max-w-sm rounded overflow-hidden shadow-lg transition transform hover:scale-105">
+		<div className="max-w-sm rounded overflow-hidden shadow-lg transition transform hover:scale-105 bg-white">
 			<img
 				className="w-full h-48 object-cover rounded-lg"
 				src={image}

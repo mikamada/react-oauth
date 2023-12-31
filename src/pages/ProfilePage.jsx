@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
 import Cookies from "js-cookie";
 import axios from "axios";
+import Layout from "../components/Layout";
 
 const ProfilePage = () => {
 	const [data, setData] = useState({});
@@ -13,14 +13,16 @@ const ProfilePage = () => {
 				Authorization: `Bearer ${token}`,
 			},
 		};
-		try {
-			const res = await axios.get(
-				`${import.meta.env.VITE_REACT_API}/setting`,
-				config
-			);
-			setData(res.data.user);
-		} catch (error) {
-			console.log(error);
+		if (token) {
+			try {
+				const res = await axios.get(
+					`${import.meta.env.VITE_REACT_API}/setting`,
+					config
+				);
+				setData(res.data.user);
+			} catch (error) {
+				console.log(error);
+			}
 		}
 	};
 
@@ -29,13 +31,12 @@ const ProfilePage = () => {
 	}, []);
 
 	return (
-		<div>
-			<Navbar />
+		<Layout>
 			<div className="flex justify-center items-center min-h-screen px-6">
 				<div className="max-w-md mx-auto mt-8 bg-white rounded-xl overflow-hidden shadow-md md:flex">
 					<div className="md:flex-shrink-0">
 						<img
-							className="h-48 w-full object-cover md:w-48"
+							className="h-full w-full object-cover md:w-48"
 							src={data.image}
 							alt={`${data.name}'s profile`}
 						/>
@@ -56,7 +57,7 @@ const ProfilePage = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Layout>
 	);
 };
 
