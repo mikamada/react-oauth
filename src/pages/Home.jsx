@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import AnimeCard from "../components/AnimeCard";
 
 const Home = () => {
-	const [pupularAnime, setPopularAnime] = useState([]);
+	const [popularAnime, setPopularAnime] = useState([]);
 
 	const getPopularAnime = async () => {
 		try {
@@ -26,8 +26,8 @@ const Home = () => {
 			<div className="mt-10 px-8">
 				<h1 className="text-3xl font-bold text-slate-800">Popular Anime</h1>
 				<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 py-8">
-					{pupularAnime &&
-						pupularAnime.map((item) => (
+					{popularAnime &&
+						popularAnime.map((item) => (
 							<AnimeCard
 								key={item.mal_id}
 								episodes={item.episodes}
